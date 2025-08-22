@@ -3,14 +3,26 @@
 
 int main(){
 
-    reverse(123);
-    printf("\n");
-    reverse(-123);
-    printf("\n");
-    reverse(120);
-    printf("\n");
-    reverse(1534236469);
-    printf("\n");
+    int result = reverse(123);
+    printf("***%d****\n", result);
+    printf("*********************************************************\n");
+
+    result = reverse(-123);
+    printf("***%d****\n", result);
+    printf("*********************************************************\n");
+
+    result = reverse(120);
+    printf("***%d****\n", result);
+    printf("*********************************************************\n");
+
+    result = reverse(1534236469);
+    printf("***%d****\n", result);
+    printf("*********************************************************\n");
+
+    result = reverse(-2147483648);
+    printf("***%d****\n", result);
+    printf("*********************************************************\n");
 
     return 0;
+
 }

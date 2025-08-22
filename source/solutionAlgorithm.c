@@ -1,13 +1,27 @@
 #include <stdio.h>
-#include <stdint.h>
-#include <inttypes.h>
-#include <math.h>
 #include <limits.h>
+#include <stdbool.h>
 
-int32_t MAX = INT32_MAX;
-int32_t MIN = INT32_MIN;
+#include "C:\Users\priva\OneDrive\Documents\Practicing C Language\#7 Reverse Integer\source\powerFunction.c"
+
+int MAX = INT_MAX;
+int MIN = INT_MIN;
+
+bool turnedPositive = 0;
 
     int reverse(int x){
+
+        printf("x = %d\n", x);
+        if (x < 0){
+            printf("x negative\n");
+            x *= (-1);
+            turnedPositive = 1;
+        }else if(x <= MIN){
+            return 0;
+        }
+
+        if(turnedPositive == 1) printf("turnedPositive = 1\n");
+        else printf("turnedPositive = 0\n");
 
         printf("Function Started...!\n");
 
@@ -33,30 +47,46 @@ int32_t MIN = INT32_MIN;
             x /= 10;
         }
 
-        int xReversed = 0;
+        for(int i = 0; i < xDigitsNumber; i++){
+            printf("xStoring [%d] = %d\n", i, xStoring [i]);
+        }
+
+        unsigned long long xReversed = 0;
         int tempxDigitsNumber = (xDigitsNumber - 1);
+
+        printf("Power = %llu\n", powerFunction(10, tempxDigitsNumber));
+        printf("MAX = %llu\n", (unsigned long long)MAX);
+
+        if ( (powerFunction(10, tempxDigitsNumber)) >  (unsigned long long)MAX) return 0;
+
 
         for(int i = 0; i < xDigitsNumber; i++){
 
-            xReversed += xStoring [i] * pow(10, tempxDigitsNumber);
+            xReversed += (unsigned long long)xStoring [i] * powerFunction(10, tempxDigitsNumber);
+            printf("xReversed = %llu", xReversed);
+
+            if(xReversed > (unsigned long long)MAX){
+                printf("Break\n");
+                return 0;
+                break;
+            }
+
             if(tempxDigitsNumber != 0){
                 tempxDigitsNumber--;
+                printf("\ntempxDigitsNumber = %d\n", tempxDigitsNumber);
             }
 
         }
 
-        printf("Reversed x %d\n", xReversed);
+        //printf("Reversed x %lu\n", xReversed);
 
-        if( (xReversed > MAX) || (xReversed < MIN) ){
-            return 0;
-        }
-
-        if(x < 0){
-            printf("Reversed x %d\n", (xReversed * (-1)));
-            return (xReversed * (-1));
+        if(turnedPositive == 1){
+            printf("\nFinalReversed x (-) %llu\n", (xReversed * (-1)));
+            turnedPositive = 0;
+            return (int)(xReversed * (-1));
         }
         else{
-            printf("Reversed x %d\n", xReversed);
-            return xReversed;
+            printf("\nFinal Reversed x (+) %llu\n", xReversed);
+            return (int)xReversed;
         }
     }
