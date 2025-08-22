@@ -51,6 +51,12 @@ int32_t MIN = INT32_MIN;
             return 0;
         }
 
-        return xReversed;
-
+        if(x < 0){
+            printf("Reversed x %d\n", (xReversed * (-1)));
+            return (xReversed * (-1));
+        }
+        else{
+            printf("Reversed x %d\n", xReversed);
+            return xReversed;
+        }
     }

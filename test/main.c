@@ -3,7 +3,9 @@
 
 int main(){
 
-    reverse(321);
+    reverse(123);
+    reverse(-123);
+    reverse(120);
 
     return 0;
 }
