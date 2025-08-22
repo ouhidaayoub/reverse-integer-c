@@ -9,13 +9,20 @@ int32_t MIN = INT32_MIN;
 
     int reverse(int x){
 
+        printf("Function Started...!\n");
+
         int carry = 1;
         int xDigitsNumber = 0;
 
+        int xTemp = x;
+
         while ( carry != 0 ){
-            carry = x / 10;
+            carry = xTemp / 10;
+            xTemp = carry;
             xDigitsNumber++;
         }
+
+        printf("Number Of digits for this number = %d\n", xDigitsNumber);
 
         int xStoring [xDigitsNumber];
         int xStoringIndex = 0;
