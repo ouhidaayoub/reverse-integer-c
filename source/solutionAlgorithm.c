@@ -47,7 +47,7 @@ int32_t MIN = INT32_MIN;
 
         printf("Reversed x %d\n", xReversed);
 
-        if( (xReversed > MAX) || (xReversed > MIN) ){
+        if( (xReversed > MAX) || (xReversed < MIN) ){
             return 0;
         }
 

@@ -4,8 +4,13 @@
 int main(){
 
     reverse(123);
+    printf("\n");
     reverse(-123);
+    printf("\n");
     reverse(120);
+    printf("\n");
+    reverse(1534236469);
+    printf("\n");
 
     return 0;
 }
